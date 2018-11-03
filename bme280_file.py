@@ -5,16 +5,21 @@ import os
 import requests
 import util
 import bme280_gt
-
-sito = "http://troni.it/iot_log/php/add.php"
-item_prefix = "datalog/mauve/"
-
+#inserisci il link alla API del sito IoT
+sito = "xxx"
+#inserisci il ridferimento all'indirizzo dei dati da salvare sul sito
+item_prefix = "datalog/..."
+#nome del file locale su cui salvare i dati
+nome_file = "/home/pi/datalog.csv"
+        
 util.log("Ciao Vecio")
 bme280_gt.setup()
 bme280_gt.get_calib_param()
 
 dati = bme280_gt.readData()
-f = open("/home/pi/datalog.csv", 'a')
+
+#salva sul file locale
+f = open(nome_file, 'a')
 for x in dati:
         item = item_prefix + x
         csv = util.ora() +";" + util.origin + ";" + item + ";" + dati[x]
