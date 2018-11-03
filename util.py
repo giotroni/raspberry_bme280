@@ -3,7 +3,8 @@
 import datetime
 import socket
 
-origin = "zero_01"
+#inserisci il nome del device
+origin = "xxx"
 log_file = "/home/pi/Desktop/log.txt"
 
 #funzione che ritorna l'ora in formato stringa
